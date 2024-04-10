@@ -11,7 +11,21 @@ const LIGHTING = "lighting";
 const SOUNDS = "sounds";
 const NOTES = "notes";
 
-function registerKey(action, name, key) {
+
+Hooks.once('setup', async () => {
+    setupKeys();
+    setupApi()
+});
+
+function setupApi() {
+    game.modules.get(MODULE_NAME).api = {
+        registerKey: function (dataControl, displayName, key) {
+            return registerKey(dataControl, displayName, key);
+        }
+    }
+}
+
+function registerKey(dataControl, name, key) {
     let keys = [];
 
     if (key) {
@@ -22,12 +36,12 @@ function registerKey(action, name, key) {
         ]
     }
 
-    game.keybindings.register(MODULE_NAME, action, {
+    game.keybindings.register(MODULE_NAME, dataControl, {
         name: name,
         editable: keys,
 
         onDown: () => {
-            change(action)
+            change(dataControl)
         },
         onUp: () => {
             restore()
@@ -44,9 +58,6 @@ function setupKeys() {
     registerKey(DRAWINGS, "Drawings-View", "KeyF");
     registerKey(WALLS, "Walls-View");
     registerKey(LIGHTING, "Lighting-View", "KeyQ");
+    registerKey(SOUNDS, "Sounds-View", "KeyP");
     registerKey(NOTES, "Notes-View", "KeyN");
 }
-
-Hooks.once('setup', async () => {
-    setupKeys();
-});
