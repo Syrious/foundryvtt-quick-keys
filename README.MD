@@ -11,7 +11,6 @@ Especially useful to quickly toggle lights.
 ## Configuration
 You can customize the keys in "Configure Controls" 
 
-![config.png](assets/config.png)
 
 ## API
 You can register your module with quick-keys.
@@ -27,6 +26,8 @@ Hooks.once('setup', async () => {
     game.modules.get("quick-keys").api.registerKey("sequencer", "Sequencer", "KeyH");
 });
 ```
+
+![config.png](assets/config.png)
 
 ### Support
 If you like to support my work find me on [Patreon](https://www.patreon.com/SyriousWorkshop).
