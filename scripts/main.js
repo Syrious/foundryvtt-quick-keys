@@ -29,5 +29,3 @@ function activateElement(param) {
         console.log(`element ${param} not found`)
     }
 }
-
-// .dataset.control
