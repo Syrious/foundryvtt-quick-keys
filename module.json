@@ -1,0 +1,29 @@
+{
+  "id": "quick-keys",
+  "title": "Quick Keys",
+  "version": "0.0.1",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "11"
+  },
+  "authors": [
+    {
+      "name": "Syrious",
+      "discord": "syrious_",
+      "flags": {
+        "patreon": "SyriousWorkshop",
+        "github": "Syrious",
+        "ko-fi": "syrious"
+      }
+    }
+  ],
+  "esmodules": [
+    "/scripts/main.js"
+  ],
+  "styles": [
+    "styles/main.css"
+  ],
+  "url": "https://github.com/Syrious/foundryvtt-sheet-only",
+  "manifest": "https://github.com/Syrious/foundryvtt-sheet-only/releases/download/latest/module.json",
+  "download": "https://github.com/Syrious/foundryvtt-sheet-only/releases/download/latest/module.zip"
+}
