@@ -18,7 +18,8 @@
     }
   ],
   "esmodules": [
-    "/scripts/main.js"
+    "/scripts/main.js",
+    "/scripts/keybindings.js"
   ],
   "styles": [
     "styles/main.css"
