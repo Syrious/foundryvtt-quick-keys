@@ -25,10 +25,35 @@ game.modules.get("quick-keys").api.registerKey("data-control", "Name that gets d
 ```
 
 Here's we use sequencer as an example. The data-control attribute within the DOM is "sequencer" and we register the "H" key.
+It is important, that the call has to be made in the 'init' phase.
+
+We awkwardly leverage a timer, in case quick-keys has not yet been initialized. __If anyone knows of a better way, please let me know!__
 
 ```javascript
-Hooks.once('setup', async () => {
-    game.modules.get("quick-keys").api.registerKey("sequencer", "Sequencer", "KeyH");
+Hooks.once('init', () => {
+    if (game.modules.has('quick-keys')) {
+        // **** Change these ****
+        let dataControl = "sequencer";
+        let name = "Sequencer";
+        let key = "KeyH";
+        // **********************
+
+        let count = 0;
+        let checkApiInterval = setInterval(() => {
+            let api = game.modules.get('quick-keys').api;
+
+            if (api) {
+                api.registerKey(dataControl, name, key);
+                console.info(`${name} (${dataControl}) registered key '${key}' successfully with quick-keys`);
+                clearInterval(checkApiInterval);
+            } else if (count >= 500) {
+                console.error("Cancel waiting for quick-keys initialization");
+                clearInterval(checkApiInterval);
+            } else {
+                count++;
+            }
+        }, 1);
+    }
 });
 ```
 

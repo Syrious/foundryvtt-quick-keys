@@ -11,8 +11,7 @@ const LIGHTING = "lighting";
 const SOUNDS = "sounds";
 const NOTES = "notes";
 
-
-Hooks.once('setup', async () => {
+Hooks.once('init', async () => {
     setupKeys();
     setupApi()
     // This won't work here since UI is not there, yet
@@ -20,11 +19,9 @@ Hooks.once('setup', async () => {
 });
 
 Hooks.once('ready', async () => {
-    // This won't work here either because registering keys can only be done in setup phase
+    // This won't work here either because registering keys can only be done in init phase
     // register3rdParty()
 });
-
-
 
 function setupApi() {
     game.modules.get(MODULE_NAME).api = {

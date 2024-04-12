@@ -1,5 +1,4 @@
 Hooks.on('init', () => {
-    console.warn("Registering Keys for quick keys")
     let moduleId = "quick-keys";
 
     game.settings.register(moduleId, "delay-settings", {
