@@ -1,7 +1,7 @@
 {
   "id": "quick-keys",
   "title": "Quick Keys",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "compatibility": {
     "minimum": "11",
     "verified": "11"
@@ -19,6 +19,7 @@
   ],
   "esmodules": [
     "/scripts/main.js",
+    "/scripts/settings.js",
     "/scripts/keybindings.js"
   ],
   "styles": [

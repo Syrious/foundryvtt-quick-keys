@@ -8,9 +8,14 @@ Releasing the key lets you switch back to the view you came from.
 
 Especially useful to quickly toggle lights.
 
+#### Pinning the view
+Tapping quickly three times the same key pins the corresponding view.
+
 ## Configuration
 You can customize the keys in "Configure Controls" 
 
+## Settings
+You can set the delay for the 3-tap pinning in the setting. Default is 500.
 
 ## API
 You can register your module with quick-keys.
