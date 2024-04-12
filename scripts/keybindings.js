@@ -15,7 +15,16 @@ const NOTES = "notes";
 Hooks.once('setup', async () => {
     setupKeys();
     setupApi()
+    // This won't work here since UI is not there, yet
+   // register3rdParty()
 });
+
+Hooks.once('ready', async () => {
+    // This won't work here either because registering keys can only be done in setup phase
+    // register3rdParty()
+});
+
+
 
 function setupApi() {
     game.modules.get(MODULE_NAME).api = {
@@ -49,6 +58,18 @@ function registerKey(dataControl, name, key) {
 
         precedence: CONST.KEYBINDING_PRECEDENCE.NORMAL
     });
+}
+
+function register3rdParty() {
+    const controls = ui.controls.controls
+    controls.forEach(control => {
+        console.log(control)
+        if (![TOKEN, MEASURE, TILES, DRAWINGS, WALLS, LIGHTING, SOUNDS, NOTES].includes(control)) {
+            let name = control.name;
+            registerKey(control,name.charAt(0).toUpperCase() + name.slice(1) + "-View")
+        }
+    });
+
 }
 
 function setupKeys() {

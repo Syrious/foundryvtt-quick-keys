@@ -10,8 +10,8 @@ Hooks.once('ready', async () => {
 
 export function change(param) {
     if (document.activeElement === bodyElement) {
-        lastActive = document.querySelector('.scene-control.active').dataset.control;
-
+        //  lastActive = document.querySelector('.scene-control.active').dataset.control;
+        lastActive = ui.controls.activeControl;
         activateElement(param);
     }
 }
