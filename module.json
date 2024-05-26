@@ -2,10 +2,10 @@
   "id": "quick-keys",
   "title": "Quick Keys",
   "description": "Press and hold a key to activate a canvas layer. Let go to quickly switch back.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "compatibility": {
     "minimum": "11",
-    "verified": "11"
+    "verified": "12"
   },
   "authors": [
     {
@@ -29,5 +29,4 @@
   "url": "https://github.com/Syrious/foundryvtt-quick-keys",
   "manifest": "https://github.com/Syrious/foundryvtt-quick-keys/releases/download/latest/module.json",
   "download": "https://github.com/Syrious/foundryvtt-quick-keys/releases/download/latest/module.zip"
-}
 }
