@@ -5,6 +5,9 @@
 
 [Discord](https://discord.gg/VMqndcyUGS)
 
+# CODE-ONLY REPO
+This repository is only meant to host the code. All new releases can be found [on my hub](https://hub.adventurer-backpack.com)
+
 # Quick Keys
 With this module, you can press and hold the hotkey to switch to the corresponding UI view, e.g. lighting, sounds, notes, drawings etc. 
 Releasing the key lets you switch back to the view you came from.
