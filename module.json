@@ -1,11 +1,11 @@
 {
   "id": "quick-keys",
   "title": "Quick Keys",
-  "description": "Press and hold a key to activate a canvas layer. Let go to quickly switch back.",
-  "version": "0.0.4",
+  "description": "Press and hold a key to activate a canvas layer. Let go to quickly switch back. Additionally, it has a key to toggle manual rolling mode.",
+  "version": "0.0.5",
   "compatibility": {
     "minimum": "11",
-    "verified": "12"
+    "verified": "13"
   },
   "authors": [
     {
@@ -24,9 +24,13 @@
     "/scripts/keybindings.js"
   ],
   "styles": [
-    "styles/main.css"
+    {
+      "src": "styles/main.css"
+    }
   ],
-  "url": "https://github.com/Syrious/foundryvtt-quick-keys",
-  "manifest": "https://github.com/Syrious/foundryvtt-quick-keys/releases/download/latest/module.json",
-  "download": "https://github.com/Syrious/foundryvtt-quick-keys/releases/download/latest/module.zip"
+  "flags": {},
+  "bugs": "https://discord.gg/VMqndcyUGS",
+  "url": "https://hub.adventurer-backpack.com/module/quick-keys",
+  "manifest": "https://hub.adventurer-backpack.com/api/download/manifest/quick-keys/latest",
+  "download": "https://hub.adventurer-backpack.com/api/download/module/quick-keys/0.0.4"
 }
