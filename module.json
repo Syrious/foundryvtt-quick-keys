@@ -1,11 +1,11 @@
 {
   "id": "quick-keys",
   "title": "Quick Keys",
-  "description": "Press and hold a key to activate a canvas layer. Let go to quickly switch back.",
-  "version": "0.0.4",
+  "description": "Press and hold a key to activate a canvas layer. Let go to quickly switch back. Additionally, it has a key to toggle manual rolling mode.",
+  "version": "0.1.0",
   "compatibility": {
     "minimum": "11",
-    "verified": "12"
+    "verified": "13"
   },
   "authors": [
     {
@@ -24,9 +24,13 @@
     "/scripts/keybindings.js"
   ],
   "styles": [
-    "styles/main.css"
+    {
+      "src": "styles/main.css"
+    }
   ],
-  "url": "https://github.com/Syrious/foundryvtt-quick-keys",
-  "manifest": "https://github.com/Syrious/foundryvtt-quick-keys/releases/download/latest/module.json",
-  "download": "https://github.com/Syrious/foundryvtt-quick-keys/releases/download/latest/module.zip"
+  "flags": {},
+  "bugs": "https://discord.gg/VMqndcyUGS",
+  "url": "${module-url}",
+  "manifest": "${module-endpoint}",
+  "download": "${download-endpoint}"
 }

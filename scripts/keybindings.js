@@ -15,8 +15,10 @@ Hooks.once('init', async () => {
     setupKeys();
     setupApi()
     // This won't work here since UI is not there, yet
-   // register3rdParty()
+    // register3rdParty()
 });
+
+let current;
 
 Hooks.once('ready', async () => {
     // This won't work here either because registering keys can only be done in init phase
@@ -35,11 +37,7 @@ function registerKey(dataControl, name, key) {
     let keys = [];
 
     if (key) {
-        keys = [
-            {
-                key: key
-            }
-        ]
+        keys = [{key: key}]
     }
 
     game.keybindings.register(MODULE_NAME, dataControl, {
@@ -63,10 +61,41 @@ function register3rdParty() {
         console.log(control)
         if (![TOKEN, MEASURE, TILES, DRAWINGS, WALLS, LIGHTING, SOUNDS, NOTES].includes(control)) {
             let name = control.name;
-            registerKey(control,name.charAt(0).toUpperCase() + name.slice(1) + "-View")
+            registerKey(control, name.charAt(0).toUpperCase() + name.slice(1) + "-View")
         }
     });
 
+}
+
+export async function toggleManualRolls() {
+    const settingKey = Roll.DICE_CONFIGURATION_SETTING ?? "diceConfiguration";
+    const settings = await game.settings.get("core", settingKey);
+
+    let entries = Object.entries(settings);
+    const newMode = entries.some(([key, value]) => value === "manual") ? "random" : "manual";
+
+    for (const [key, value] of entries) {
+        settings[key] = newMode;
+    }
+
+    await game.settings.set("core", settingKey, settings);
+
+    ui.notifications.info("Set to " + newMode + " rolling mode.");
+}
+
+function registerKeyForManualRollsToggle() {
+    game.keybindings.register(MODULE_NAME, "manual-rolke-toggle", {
+        name: "Toggle Manual Rolls",
+        editable: [{key: "KeyQ", modifiers: ["Control"]}],
+
+        onDown: () => {
+        },
+        onUp: () => {
+            toggleManualRolls();
+        },
+        restricted: false,
+        precedence: CONST.KEYBINDING_PRECEDENCE.NORMAL
+    });
 }
 
 function setupKeys() {
@@ -78,4 +107,6 @@ function setupKeys() {
     registerKey(LIGHTING, "Lighting-View", "KeyQ");
     registerKey(SOUNDS, "Sounds-View", "KeyP");
     registerKey(NOTES, "Notes-View", "KeyN");
+
+    registerKeyForManualRollsToggle()
 }
