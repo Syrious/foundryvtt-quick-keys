@@ -1,3 +1,6 @@
+# 0.1.0
+- Adds quick key for toggling rolling mode
+
 # 0.0.3
 - Changes internal behavior
 - 3rd party modules now have to register with quick-keys in a different way (Thanks to esheyw to bringing that issue to my attention)
