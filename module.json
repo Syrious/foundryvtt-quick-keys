@@ -2,7 +2,7 @@
   "id": "quick-keys",
   "title": "Quick Keys",
   "description": "Press and hold a key to activate a canvas layer. Let go to quickly switch back. Additionally, it has a key to toggle manual rolling mode.",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "compatibility": {
     "minimum": "11",
     "verified": "13"
@@ -32,5 +32,5 @@
   "bugs": "https://discord.gg/VMqndcyUGS",
   "url": "https://hub.adventurer-backpack.com/module/quick-keys",
   "manifest": "https://hub.adventurer-backpack.com/api/download/manifest/quick-keys/latest",
-  "download": "https://hub.adventurer-backpack.com/api/download/module/quick-keys/0.0.4"
+  "download": "https://hub.adventurer-backpack.com/api/download/module/quick-keys/0.0.6"
 }
