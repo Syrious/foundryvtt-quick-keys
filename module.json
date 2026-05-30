@@ -2,7 +2,7 @@
   "id": "quick-keys",
   "title": "Quick Keys",
   "description": "Press and hold a key to activate a canvas layer. Let go to quickly switch back. Additionally, it has a key to toggle manual rolling mode.",
-  "version": "0.0.7",
+  "version": "0.2.0",
   "compatibility": {
     "minimum": "11",
     "verified": "13"
