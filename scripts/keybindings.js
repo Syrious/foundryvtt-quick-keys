@@ -67,7 +67,7 @@ function register3rdParty() {
 
 }
 
-export async function toggleManualRolls() {
+export async function toggleManualRolls(showMessage = true) {
     const settingKey = Roll.DICE_CONFIGURATION_SETTING ?? "diceConfiguration";
     const settings = await game.settings.get("core", settingKey);
 
@@ -80,18 +80,35 @@ export async function toggleManualRolls() {
 
     await game.settings.set("core", settingKey, settings);
 
-    ui.notifications.info("Set to " + newMode + " rolling mode.");
+    if (showMessage) {
+        ui.notifications.info("Set to " + newMode + " rolling mode.");
+    }
 }
 
 function registerKeyForManualRollsToggle() {
-    game.keybindings.register(MODULE_NAME, "manual-rolke-toggle", {
+    game.keybindings.register(MODULE_NAME, "manual-roll-toggle", {
         name: "Toggle Manual Rolls",
         editable: [{key: "KeyQ", modifiers: ["Control"]}],
 
         onDown: () => {
         },
-        onUp: () => {
-            toggleManualRolls();
+        onUp: async () => {
+            await toggleManualRolls(true);
+        },
+        restricted: false,
+        precedence: CONST.KEYBINDING_PRECEDENCE.NORMAL
+    });
+
+    game.keybindings.register(MODULE_NAME, "manual-roll-hold-toggle", {
+        name: "Quick Toggle Manual Rolls",
+        hint: "Holding this key will switch roll mode. Releasing will revert to previous mode.",
+        editable: [],
+
+        onDown: async () => {
+            await toggleManualRolls(false);
+        },
+        onUp: async () => {
+            await toggleManualRolls(false);
         },
         restricted: false,
         precedence: CONST.KEYBINDING_PRECEDENCE.NORMAL
